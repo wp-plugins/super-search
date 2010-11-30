@@ -33,7 +33,7 @@ if ($catmode == 1){
 } else {
 	#output the manually selected cats
 	foreach($categories as $category){
-		if(in_array($category_name, $mancats)){
+		if(in_array($category->name, $mancats)){
 			$output .= '<option value="'.$category->term_id.'">'.$category->name.'</option>\n';
 		}
 	}
@@ -57,7 +57,7 @@ if ($templatemode == 0){
 	<select name="cat" id="ss_dropdown">
 	<option value="" selected="selected">Select a Category</option>
 <?
-	ss_get_options(1);
+	ss_get_options("1");
 ?>
 	</select>
 	<input id="ss_searchbox" type="text" value="Search for..." onfocus="if(this.value=='Search for...'){this.value=''}" onblur="if(this.value==''){this.value='Search for...'}" name="s" />
@@ -66,7 +66,7 @@ if ($templatemode == 0){
 <?
 } else {
 	$template = get_option('ss_template');
-	$options = ss_get_options(0);
+	$options = ss_get_options("0");
 	$url = get_option('siteurl');
 	$formstart = "<form action='".$url."' method='get'>";
 	$fullselect = '<select name="cat" id="ss_dropdown"><option value="" selected="selected">Select a Category</option>'.$options.'</select>';
