@@ -30,6 +30,10 @@ Honestly, I don't know. Comment on my site and give me some feedback and maybe w
 2. Look, now you have complete control over which categories appear and which don't!
 
 == Changelog ==
+
+**1.1.1**
+* Fixing problem with manual category mode.
+
 **1.1**
 * Code restructuring
 * Easy template editing

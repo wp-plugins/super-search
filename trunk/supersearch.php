@@ -4,7 +4,7 @@ Plugin Name: Super Search
 Plugin URI: http://www.canhaswebsite.com/super-search
 Description: This plugin lets your users search for posts in specific categories and child categories
 Author: mc2w
-Version: 1.1
+Version: 1.1.1
 Author URI: http://www.wiflba.com
 */
 
