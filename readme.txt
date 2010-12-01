@@ -3,8 +3,8 @@ Contributors: mc2w
 Donate link: http://canhaswebsite.com/super-search
 Tags: categories, search, advanced, super, specific
 Requires at least: 2.8
-Tested up to: 3.0
-Stable tag: 1.1
+Tested up to: 3.0.2
+Stable tag: 1.1.2
 
 Generates a drop-down list and a text box to allow your visitors to search for posts within specific categories.
 
@@ -31,14 +31,21 @@ Honestly, I don't know. Comment on my site and give me some feedback and maybe w
 
 == Changelog ==
 
+**1.1.2**
+
+Fixed problem with auto-escaped quotes in template with magicquotes on
+
 **1.1.1**
+
 * Fixing problem with manual category mode.
 
 **1.1**
+
 * Code restructuring
 * Easy template editing
 
 **1.0**
+
 * Added more options
 * Major code overhaul
 * Widgets galore!
