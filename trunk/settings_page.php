@@ -15,6 +15,10 @@ $temp = get_option('ss_template');
 			$mancats = $_POST['cat'];
 			$tempmode = $_POST['tmode'];
 			$temp = $_POST['temp'];
+			if (get_magic_quotes_gpc()){
+				$temp = stripslashes($temp);
+			}
+
 			sort($mancats);
 			
 			update_option( 'ss_show_children', $ezmode);
