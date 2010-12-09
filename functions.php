@@ -56,14 +56,14 @@ if ($templatemode == 0){
 	<form action="<?php bloginfo('wpurl'); ?>" method="get">
 	<select name="cat" id="ss_dropdown">
 	<option value="" selected="selected">Select a Category</option>
-<?
+<?php
 	ss_get_options("1");
 ?>
 	</select>
 	<input id="ss_searchbox" type="text" value="Search for..." onfocus="if(this.value=='Search for...'){this.value=''}" onblur="if(this.value==''){this.value='Search for...'}" name="s" />
 	<input type="submit" value="Search" />
 	</form>
-<?
+<?php
 } else {
 	$template = get_option('ss_template');
 	$options = ss_get_options("0");

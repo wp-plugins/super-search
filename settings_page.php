@@ -135,7 +135,7 @@ $temp = get_option('ss_template');
 <hr color="#e8e6dd" size="1px" style="margin: 3px 0; padding: 0px;" />
 
 <p style="margin: 0px;">
-<textarea name="temp" rows="5" cols="100"><? echo $temp; ?></textarea>
+<textarea name="temp" rows="5" cols="100"><?php echo $temp; ?></textarea>
 </p>
 <hr color="#e8e6dd" size="1px" style="margin: 3px 0; padding: 0px;" />
 
