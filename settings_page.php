@@ -7,6 +7,7 @@ $mancats = get_option('ss_manual_cats');
 $categories = get_categories();
 $tempmode = get_option('ss_template_mode');
 $temp = get_option('ss_template');
+$exchild = get_option('ss_exclude_child');
 
 	if(isset($_POST['hidden'])){
 		if( $_POST['hidden'] == 'Y' ) {
@@ -18,7 +19,7 @@ $temp = get_option('ss_template');
 			if (get_magic_quotes_gpc()){
 				$temp = stripslashes($temp);
 			}
-
+			$exchild = $_POST['exchild'];
 			sort($mancats);
 			
 			update_option( 'ss_show_children', $ezmode);
@@ -26,6 +27,7 @@ $temp = get_option('ss_template');
 			update_option( 'ss_manual_cats', $mancats);
 			update_option( 'ss_template_mode', $tempmode);
 			update_option( 'ss_template', $temp);
+			update_option('ss_exclude_child', $exchild);
 			
 			// Put an options updated message on the screen
 			?><div class="updated"><p><strong>Your Settings Have Been Saved!</strong></p></div><?php }} ?>
@@ -60,6 +62,31 @@ $temp = get_option('ss_template');
 </div>
 <!-- End Easy vs Manual -->
 
+<!-- Exclude child -->
+<div style="background-color: #fdfdfb; border: 1px solid #e8e6dd;-moz-border-radius: 5px; -webkit-border-radius: 5px; margin: 0 0 5px 0; padding: 3px 5px;">
+<strong>Exclude Child Categories From Results?</strong>
+<hr color="#e8e6dd" size="1px" style="margin: 3px 0; padding: 0px;" />
+
+<p style="margin: 0px;">
+<?php if($exchild == 1){ ?>
+<input type="radio" name="exchild" value="1" checked />
+<label>Exclude Child Categories</label>
+<input type="radio" name="exchild" value="0" />
+<label>Include Child Categories</label>
+</p>
+
+<?php }else{ ?>
+<input type="radio" name="exchild" value="1" />
+<label>Exclude Child Categories</label>
+<input type="radio" name="exchild" value="0" checked/>
+<label>Include Child Categories</label>
+</p>
+<?php } ?>
+<hr color="#e8e6dd" size="1px" style="margin: 3px 0; padding: 0px;" />
+<p style="margin: 0px;">Enabling this will prevent posts from child categories from showing up from results. Please note that if a post is in both the parent category being searched for AND one of its child categories, it will NOT show up.</p>
+</div>
+<!-- Exclude child -->
+
 
 <!-- Easy Mode Selection -->
 <div style="background-color: #fdfdfb; border: 1px solid #e8e6dd;-moz-border-radius: 5px; -webkit-border-radius: 5px; margin: 0 0 5px 0; padding: 3px 5px;">
@@ -70,14 +97,14 @@ $temp = get_option('ss_template');
 <input type="radio" name="child" value="1" checked />
 <label>Include Child Categories</label>
 <input type="radio" name="child" value="0" />
-<label>Parent Categories Only</label>
+<label>Exclude Child Categories</label>
 </p>
 
 <?php }else{ ?>
 <input type="radio" name="child" value="1" />
 <label>Include Child Categories</label>
 <input type="radio" name="child" value="0" checked/>
-<label>Parent Categories Only</label>
+<label>Exclude Child Categories</label>
 </p>
 <?php } ?>
 <hr color="#e8e6dd" size="1px" style="margin: 3px 0; padding: 0px;" />

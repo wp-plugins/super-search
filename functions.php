@@ -1,5 +1,33 @@
 <?php
 
+#output child categories
+function ss_get_child($parent){
+$active = get_option('ss_exclude_child');
+$args = array(
+    'type'                     => 'post',
+    'child_of'                 => $parent,
+    'parent'                   => '',
+    'orderby'                  => 'name',
+    'order'                    => 'ASC',
+    'hide_empty'               => 1,
+    'hierarchical'             => 1,
+    'exclude'                  => '',
+    'include'                  => '',
+    'number'                   => '',
+    'taxonomy'                 => 'category',
+    'pad_counts'               => false );
+	
+$categories = get_categories($args);
+$return = "";
+if($active == 1){
+foreach($categories as $cat){
+	$return .= ",-".$cat->term_id;
+}
+}
+return $return;
+}
+
+
 #generate options for the forum
 function ss_get_options($echo){
 $catmode = get_option('ss_easy_mode');   
@@ -20,21 +48,24 @@ if ($catmode == 1){
 		#output without child cats
 		foreach($categories as $category){
 			if ($category->parent == 0){
-				$output .= '<option value="'.$category->term_id.'">'.$category->name.'</option>\n';
+				$child = ss_get_child($category->term_id);
+				$output .= '<option value="'.$category->term_id.$child.'">'.$category->name.'</option>\n';
 			}
 		}
 	} else {
 		
 		#output with child cats
 		foreach($categories as $category){
-			$output .= '<option value="'.$category->term_id.'">'.$category->name.'</option>\n';
+			$child = ss_get_child($category->term_id);
+			$output .= '<option value="'.$category->term_id.$child.'">'.$category->name.'</option>\n';
 		}
 	}
 } else {
 	#output the manually selected cats
 	foreach($categories as $category){
 		if(in_array($category->name, $mancats)){
-			$output .= '<option value="'.$category->term_id.'">'.$category->name.'</option>\n';
+			$child = ss_get_child($category->term_id);
+			$output .= '<option value="'.$category->term_id.$child.'">'.$category->name.'</option>\n';
 		}
 	}
 }

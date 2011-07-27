@@ -3,8 +3,8 @@ Contributors: mc2w
 Donate link: http://canhaswebsite.com/super-search
 Tags: categories, search, advanced, super, specific
 Requires at least: 2.8
-Tested up to: 3.0.3
-Stable tag: 1.1.3
+Tested up to: 3.2.8
+Stable tag: 1.2
 
 Generates a drop-down list and a text box to allow your visitors to search for posts within specific categories.
 
@@ -30,9 +30,13 @@ Honestly, I don't know. Comment on my site and give me some feedback and maybe w
 2. Look, now you have complete control over which categories appear and which don't!
 
 == Changelog ==
+**1.2**
+
+* Added option to remove child categories from results
+
 **1.1.3**
 
-*Fixed not working on xampp installs and other hosts that don't support <? over <?php
+* Fixed not working on xampp installs and other hosts that don't support <? over <?php
 
 **1.1.2**
 
